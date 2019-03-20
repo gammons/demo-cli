@@ -1,13 +1,15 @@
 <html>
   <head>
     <script src="demo-cli.js"></script>
+    <link rel="stylesheet" href="terminal.css" />
   </head>
 
   <body>
     <h1>Demo CLI examples</h1>
-    <div id="cli"></div>
+    <div class="terminal" id="cli"></div>
     <script>
       const cli = new DemoCLI("#cli")
+      cli.println("testing")
       cli.println("testing")
     </script>
   </body>
