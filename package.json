@@ -1,0 +1,27 @@
+{
+  "name": "demo-cli",
+  "version": "0.0.1",
+  "description": "Create beautiful CLI demos using JS and CSS.",
+  "main": "demo-cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gammons/demo-cli.git"
+  },
+  "keywords": [
+    "terminal",
+    "cli"
+  ],
+  "author": "Grant Ammons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gammons/demo-cli/issues"
+  },
+  "homepage": "https://github.com/gammons/demo-cli#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
