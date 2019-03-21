@@ -1,9 +1,13 @@
 // cli = new CLIDemo("#container", {cursor: CLIDemo.Cursor.Blink})
 
 // cli.type("this is a demo", {speed: 60, random: true})
+// cli.enter()
 
 // delay for a bit
 // cli.delay(2500)
+//
+// show the prompt
+// cli.prompt()
 
 // clear the screen
 // cli.clearScreen()
@@ -17,17 +21,28 @@
 
 class DemoCLI {
   constructor(containerName, options) {
-    console.log("containerName = ", containerName)
     this.container = document.querySelector(containerName)
-    console.log("container = ", this.container)
     this.container.innerHTML = ''
   }
 
+  print(string) {
+    const span = document.createElement("span")
+    span.innerHTML = string
+    this.container.appendChild(span)
+  }
+
   println(string) {
-    console.log("println container = ", this.container)
     const div = document.createElement("div")
     div.innerHTML = `<span>${string}</span>`
     this.container.appendChild(div)
+  }
+
+  color(color, string) {
+    return `<span class="${color}">${string}</span>`
+  }
+
+  prompt() {
+    this.print(this.color("base09", "➜ "))
   }
 }
 

@@ -2,15 +2,19 @@
   <head>
     <script src="demo-cli.js"></script>
     <link rel="stylesheet" href="terminal.css" />
+    <link rel="stylesheet" href="base16-default-dark.css" />
   </head>
 
   <body>
     <h1>Demo CLI examples</h1>
-    <div class="terminal" id="cli"></div>
+    <pre class="terminal" id="cli"></pre>
     <script>
       const cli = new DemoCLI("#cli")
-      cli.println("testing")
-      cli.println("testing")
+      cli.prompt()
+      cli.print(`print ${cli.color('base08', 'this is red')} `)
+      cli.print("print")
+      cli.println("println")
+      cli.println("println")
     </script>
   </body>
 </html>
