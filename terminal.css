@@ -73,8 +73,8 @@
     content: attr(data-ty-prompt);
 }
 
-[data-ty-cursor]:after {
-    content: attr(data-ty-cursor);
+[data-cli-cursor]:after {
+    content: attr(data-cli-cursor);
     font-family: monospace;
     margin-left: 0.5em;
     -webkit-animation: blink 1s infinite;

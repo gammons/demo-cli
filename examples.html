@@ -20,12 +20,14 @@
         colorNum = 1
         for(let x = 0; x <= 16; x++) {
           cli.prompt()
-          cli.println(cli.color(`base0${x.toString(16)}`, 'colors '))
+          cli.println("colors", {className: `base0${x.toString(16)}`})
           colorNum++
         }
 
         cli.println("println")
         cli.println("println")
+        cli.prompt({className: "base08"})
+        cli.printCursor()
       </script>
     </section>
 
@@ -39,8 +41,9 @@
           await t.type("here I am typing")
           t.enterKey()
           t.prompt()
+          t.printCursor()
 
-          await t.wait(1000)
+          await t.wait(2000)
 
           await t.type("here I am typing more stuff")
           t.enterKey()

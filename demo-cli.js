@@ -22,11 +22,18 @@
 class DemoCLI {
   constructor(containerName, options) {
     this.container = document.querySelector(containerName)
-    this.container.innerHTML = ''
+    this.container.innerHTML = ""
+    this.cursor = "▋"
   }
 
-  print(string) {
+  print(string, options = {}) {
     const span = document.createElement("span")
+    if (options.className) span.className = options.className
+
+    for(const prop in options) {
+      span.setAttribute(prop, options[prop])
+    }
+
     span.innerHTML = string
     this.container.appendChild(span)
   }
@@ -35,17 +42,17 @@ class DemoCLI {
     this.container.appendChild(document.createElement("br"))
   }
 
-  println(string) {
-    this.print(string)
+  println(string, options = {}) {
+    this.print(string, options)
     this.enterKey()
   }
 
-  color(color, string) {
-    return `<span class="${color}">${string}</span>`
+  prompt(options = {}) {
+    this.print("➜ ", options)
   }
 
-  prompt() {
-    this.print(this.color("base09", "➜ "))
+  printCursor() {
+    this.print("", { "data-cli-cursor": this.cursor })
   }
 
   wait(time) {
@@ -55,12 +62,15 @@ class DemoCLI {
   async type(string, options = {}) {
     const delay = options.delay || 60
     const span = document.createElement("span")
+    span.setAttribute("data-cli-cursor", this.cursor)
+
     this.container.appendChild(span)
 
     for(let char of string) {
       await this.wait(delay)
       span.textContent += char
     }
+    span.removeAttribute("data-cli-cursor")
   }
 }
 
