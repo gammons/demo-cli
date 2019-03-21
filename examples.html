@@ -7,15 +7,48 @@
 
   <body>
     <h1>Demo CLI examples</h1>
-    <pre class="terminal" id="cli"></pre>
-    <script>
-      const cli = new DemoCLI("#cli")
-      cli.prompt()
-      cli.print(`print ${cli.color('base08', 'this is red')} `)
-      cli.print("print")
-      cli.println("println")
-      cli.println("println")
-    </script>
+
+    <section>
+      <h3>Print</h3>
+      <pre class="terminal" id="cli"></pre>
+      <script>
+        const cli = new DemoCLI("#cli")
+        cli.prompt()
+        cli.print("print ")
+        cli.println("print ")
+
+        colorNum = 1
+        for(let x = 0; x <= 16; x++) {
+          cli.prompt()
+          cli.println(cli.color(`base0${x.toString(16)}`, 'colors '))
+          colorNum++
+        }
+
+        cli.println("println")
+        cli.println("println")
+      </script>
+    </section>
+
+    <section>
+      <h3>Typing</h3>
+      <pre class="terminal" id="typing-cli"></pre>
+      <script>
+        const t = new DemoCLI("#typing-cli")
+        const f = (async () => {
+          t.prompt()
+          await t.type("here I am typing")
+          t.enterKey()
+          t.prompt()
+
+          await t.wait(1000)
+
+          await t.type("here I am typing more stuff")
+          t.enterKey()
+          t.prompt()
+        })()
+      </script>
+    </section>
+
   </body>
 </html>
 

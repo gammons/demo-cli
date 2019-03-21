@@ -31,10 +31,13 @@ class DemoCLI {
     this.container.appendChild(span)
   }
 
+  async enterKey() {
+    this.container.appendChild(document.createElement("br"))
+  }
+
   println(string) {
-    const div = document.createElement("div")
-    div.innerHTML = `<span>${string}</span>`
-    this.container.appendChild(div)
+    this.print(string)
+    this.enterKey()
   }
 
   color(color, string) {
@@ -43,6 +46,21 @@ class DemoCLI {
 
   prompt() {
     this.print(this.color("base09", "➜ "))
+  }
+
+  wait(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
+
+  async type(string, options = {}) {
+    const delay = options.delay || 60
+    const span = document.createElement("span")
+    this.container.appendChild(span)
+
+    for(let char of string) {
+      await this.wait(delay)
+      span.textContent += char
+    }
   }
 }
 
