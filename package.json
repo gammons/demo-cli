@@ -4,9 +4,7 @@
   "description": "Create beautiful CLI demos using JS and CSS.",
   "main": "demo-cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -23,5 +21,10 @@
   },
   "homepage": "https://github.com/gammons/demo-cli#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "documentation": "^9.3.1",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
 }
