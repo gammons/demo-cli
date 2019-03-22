@@ -24,7 +24,7 @@ Easily create demos of interacting with CLI-based things. See [https://demo-cli.
 
 ## Installation
 
-`npm install demo-cli`
+`npm install @gammons/demo-cli`
 
 demo-cli has no JS dependencies.
 
