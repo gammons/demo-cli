@@ -1,5 +1,5 @@
 {
-  "name": "demo-cli",
+  "name": "@gammons/demo-cli",
   "version": "0.0.1",
   "description": "Create beautiful CLI demos using JS and CSS.",
   "main": "demo-cli.js",
