@@ -5,9 +5,8 @@
 }
 
 .terminal {
-    overflow-x: auto;
-    width: 750px;
-    min-height: 500px;
+    width: 100%;
+    min-height: 300px;
     margin-bottom: 40px;
     background: var(--color-bg);
     color: var(--color-text);
