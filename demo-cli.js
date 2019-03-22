@@ -1,4 +1,4 @@
-class DemoCLI {
+export default class DemoCLI {
 
   /**
    * Creates a new DemoCLI object.

@@ -1,6 +1,5 @@
 <html>
   <head>
-    <script src="demo-cli.js"></script>
     <link rel="stylesheet" href="terminal.css" />
     <link rel="stylesheet" href="base16-default-dark.css" />
   </head>
@@ -11,13 +10,15 @@
     <section>
       <h3>Print</h3>
       <pre class="terminal" id="cli"></pre>
-      <script>
+      <script type="module">
+        import DemoCLI from "./demo-cli.js"
+
         const cli = new DemoCLI("#cli")
         cli.printPrompt()
         cli.print("print ")
         cli.println("print ")
 
-        colorNum = 1
+        let colorNum = 1
         for(let x = 0; x <= 16; x++) {
           cli.printPrompt()
           cli.println("colors", {className: `base0${x.toString(16)}`})
@@ -33,7 +34,8 @@
     <section>
       <h3>Typing</h3>
       <pre class="terminal" id="typing-cli"></pre>
-      <script>
+      <script type="module">
+        import DemoCLI from "./demo-cli.js"
         const t = new DemoCLI("#typing-cli")
         const f = (async () => {
           while (true) {
@@ -60,7 +62,9 @@
     <section>
       <h3>Other demos</h3>
       <pre class="terminal" id="head-cli"></pre>
-      <script>
+      <script type="module">
+        import DemoCLI from "./demo-cli.js"
+
         fetch("head.txt").then(response => response.text()).then(head => {
           const g = new DemoCLI("#head-cli")
           const h = (async () => {
