@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/gammons/demo-cli/issues"
   },
-  "homepage": "https://github.com/gammons/demo-cli#readme",
+  "homepage": "https://demo-cli.dev",
   "dependencies": {},
   "devDependencies": {
     "documentation": "^9.3.1",
