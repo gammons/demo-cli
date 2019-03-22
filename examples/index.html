@@ -36,26 +36,44 @@
       <script>
         const t = new DemoCLI("#typing-cli")
         const f = (async () => {
-          t.printPrompt()
-          await t.type("here I am typing", {delay: 60, random: true})
-          t.enterKey()
-          t.printPrompt()
+          while (true) {
+            t.printPrompt()
+            await t.type("here I am typing", {delay: 60, random: true})
+            t.enterKey()
+            t.printPrompt()
 
-          await t.wait(2000)
+            await t.wait(2000)
 
-          await t.type("here I am typing more stuff")
-          t.enterKey()
-          t.printPrompt()
+            await t.type("here I am typing more stuff")
+            t.enterKey()
+            t.printPrompt()
 
-          await t.type("going to reset here")
-          await t.wait(2000)
-          t.enterKey()
-          t.reset()
-          t.printPrompt()
+            await t.type("going to reset here")
+            await t.wait(2000)
+            t.enterKey()
+            t.reset()
+          }
         })()
       </script>
     </section>
 
+    <section>
+      <h3>Other demos</h3>
+      <pre class="terminal" id="head-cli"></pre>
+      <script>
+        fetch("head.txt").then(response => response.text()).then(head => {
+          const g = new DemoCLI("#head-cli")
+          const h = (async () => {
+            g.printPrompt()
+            await g.type("man head", {delay: 60, random: true})
+            g.enterKey()
+            g.println(head)
+            g.printPrompt()
+          })()
+        })
+
+      </script>
+    <section>
   </body>
 </html>
 
