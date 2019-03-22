@@ -13,21 +13,20 @@
       <pre class="terminal" id="cli"></pre>
       <script>
         const cli = new DemoCLI("#cli")
-        cli.prompt()
+        cli.printPrompt()
         cli.print("print ")
         cli.println("print ")
 
         colorNum = 1
         for(let x = 0; x <= 16; x++) {
-          cli.prompt()
+          cli.printPrompt()
           cli.println("colors", {className: `base0${x.toString(16)}`})
           colorNum++
         }
 
         cli.println("println")
         cli.println("println")
-        cli.prompt({className: "base08"})
-        cli.printCursor()
+        cli.printPrompt({className: "base08"})
       </script>
     </section>
 
@@ -37,17 +36,22 @@
       <script>
         const t = new DemoCLI("#typing-cli")
         const f = (async () => {
-          t.prompt()
-          await t.type("here I am typing")
+          t.printPrompt()
+          await t.type("here I am typing", {delay: 60, random: true})
           t.enterKey()
-          t.prompt()
-          t.printCursor()
+          t.printPrompt()
 
           await t.wait(2000)
 
           await t.type("here I am typing more stuff")
           t.enterKey()
-          t.prompt()
+          t.printPrompt()
+
+          await t.type("going to reset here")
+          await t.wait(2000)
+          t.enterKey()
+          t.reset()
+          t.printPrompt()
         })()
       </script>
     </section>
