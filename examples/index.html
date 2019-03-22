@@ -1,84 +1,147 @@
 <html>
   <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="terminal.css" />
     <link rel="stylesheet" href="base16-default-dark.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css" />
   </head>
 
   <body>
-    <h1>Demo CLI examples</h1>
+    <nav>
+      <h1>Demo CLI</h1>
+      <a class="github-fork-ribbon" href="https://github.com/gammons/demo-cli" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+    </nav>
+    <div class="body">
+      <p><code>demo-cli</code> is a simple javascript class that allows you to create neat-o canned demos of CLI-based tools.</p>
 
-    <section>
-      <h3>Print</h3>
-      <pre class="terminal" id="cli"></pre>
-      <script type="module">
-        import DemoCLI from "./demo-cli.js"
+      <section>
+        <h3>Simple</h3>
+        <pre class="terminal" id="simple"></pre>
+        <script type="module">
+          import DemoCLI from "./demo-cli.js"
 
-        const cli = new DemoCLI("#cli")
-        cli.printPrompt()
-        cli.print("print ")
-        cli.println("print ")
+          const cli = new DemoCLI("#simple")
 
-        let colorNum = 1
-        for(let x = 0; x <= 16; x++) {
-          cli.printPrompt()
-          cli.println("colors", {className: `base0${x.toString(16)}`})
-          colorNum++
-        }
-
-        cli.println("println")
-        cli.println("println")
-        cli.printPrompt({className: "base08"})
-      </script>
-    </section>
-
-    <section>
-      <h3>Typing</h3>
-      <pre class="terminal" id="typing-cli"></pre>
-      <script type="module">
-        import DemoCLI from "./demo-cli.js"
-        const t = new DemoCLI("#typing-cli")
-        const f = (async () => {
-          while (true) {
-            t.printPrompt()
-            await t.type("here I am typing", {delay: 60, random: true})
-            t.enterKey()
-            t.printPrompt()
-
-            await t.wait(2000)
-
-            await t.type("here I am typing more stuff")
-            t.enterKey()
-            t.printPrompt()
-
-            await t.type("going to reset here")
-            await t.wait(2000)
-            t.enterKey()
-            t.reset()
-          }
-        })()
-      </script>
-    </section>
-
-    <section>
-      <h3>Other demos</h3>
-      <pre class="terminal" id="head-cli"></pre>
-      <script type="module">
-        import DemoCLI from "./demo-cli.js"
-
-        fetch("head.txt").then(response => response.text()).then(head => {
-          const g = new DemoCLI("#head-cli")
           const h = (async () => {
-            g.printPrompt()
-            await g.type("man head", {delay: 60, random: true})
-            g.enterKey()
-            g.println(head)
-            g.printPrompt()
+            cli.printPrompt()
+            await cli.type('echo "testing this"')
+            cli.enterKey()
+            cli.println("testing this")
+            cli.printPrompt()
           })()
-        })
+        </script>
+        <pre>
+          import DemoCLI from "./demo-cli.js"
 
-      </script>
-    <section>
+          const cli = new DemoCLI("#simple")
+
+          const h = (async () => {
+            cli.printPrompt()
+            await cli.type('echo "testing this"')
+            cli.enterKey()
+            cli.println("testing this")
+            cli.printPrompt()
+          })()
+        </pre>
+      </section>
+
+      <section>
+        <h3>Printing Stuff</h3>
+        <pre class="terminal" id="cli"></pre>
+        <script type="module">
+          import DemoCLI from "./demo-cli.js"
+
+          const cli = new DemoCLI("#cli")
+          cli.printPrompt()
+          cli.print("print ")
+          cli.print("on same line ")
+          cli.enterKey()
+
+          let colorNum = 1
+          for(let x = 0; x <= 16; x++) {
+            cli.printPrompt()
+            cli.println("colors", {className: `base0${x.toString(16)}`})
+            colorNum++
+          }
+
+          cli.println("println")
+          cli.println("println")
+          cli.printPrompt({className: "base08"})
+        </script>
+        <pre>
+          import DemoCLI from "./demo-cli.js"
+
+          const cli = new DemoCLI("#cli")
+          cli.printPrompt()
+          cli.print("print ")
+          cli.print("on same line ")
+          cli.enterKey()
+
+          let colorNum = 1
+          for(let x = 0; x <= 16; x++) {
+            cli.printPrompt()
+            cli.println("colors", {className: `base0${x.toString(16)}`})
+            colorNum++
+          }
+
+          cli.println("println")
+          cli.println("println")
+          cli.printPrompt({className: "base08"})
+        </pre>
+      </section>
+
+      <section>
+        <h3>Typing</h3>
+        <pre class="terminal" id="typing-cli"></pre>
+        <script type="module">
+          import DemoCLI from "./demo-cli.js"
+          const t = new DemoCLI("#typing-cli")
+          const f = (async () => {
+            while (true) {
+              t.printPrompt()
+              await t.type("here I am typing", {delay: 60, random: true})
+              t.enterKey()
+              t.printPrompt()
+
+              await t.wait(2000)
+
+              await t.type("here I am typing more stuff")
+              t.enterKey()
+              t.printPrompt()
+
+              await t.type("going to reset here")
+              await t.wait(2000)
+              t.enterKey()
+              t.reset()
+            }
+          })()
+        </script>
+        <pre>
+          import DemoCLI from "./demo-cli.js"
+          const t = new DemoCLI("#typing-cli")
+          const f = (async () => {
+            while (true) {
+              t.printPrompt()
+              await t.type("here I am typing", {delay: 60, random: true})
+              t.enterKey()
+              t.printPrompt()
+
+              await t.wait(2000)
+
+              await t.type("here I am typing more stuff")
+              t.enterKey()
+              t.printPrompt()
+
+              await t.type("going to reset here")
+              await t.wait(2000)
+              t.enterKey()
+              t.reset()
+            }
+          })()
+        </pre>
+      </section>
+    </div>
   </body>
 </html>
 

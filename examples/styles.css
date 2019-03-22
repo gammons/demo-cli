@@ -1,0 +1,70 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media only screen and (min-width: 768px) {
+  section {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  pre {
+    min-width: 768px;
+  }
+
+}
+
+nav {
+  border-bottom: 1px solid #ddd;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
+  margin-bottom: 50px;
+}
+
+pre {
+  font-family: monospace;
+  padding: 10px;
+  background-color: #efefef;
+}
+
+section {
+  max-width: 959px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1200px;
+  border-bottom: 1px solid #ddd;
+
+}
+
+h1 {
+  padding-bottom: 20px;
+  font-size: 42px;
+  font-weight: 600;
+  text-align: center;
+}
+
+h2 {
+  font-size: 22px;
+  color: #999;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
